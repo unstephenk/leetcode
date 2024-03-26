@@ -21,18 +21,16 @@ func productExceptSelf(nums []int) []int {
 	prefixPointer := 1
 
 	// create prefix array
-	for numIndex, numValue := range nums {
-		answer[numIndex] = prefixPointer
-		prefixPointer = prefixPointer * numValue
+	for numsIndex, numsValue := range nums {
+		answer[numsIndex] = prefixPointer
+		prefixPointer *= numsValue
 	}
 
 	// start postfix at 1
 	postfixPointer := 1
-
-	// create postfix array
 	for i := len(nums) - 1; i >= 0; i-- {
-		answer[i] = answer[i] * postfixPointer
-		postfixPointer = nums[i] * postfixPointer
+		answer[i] *= postfixPointer
+		postfixPointer *= nums[i]
 	}
 
 	fmt.Println(answer)
