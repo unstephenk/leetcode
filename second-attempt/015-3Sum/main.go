@@ -28,7 +28,7 @@ func threeSum(nums []int) [][]int {
 
 	// outer array, step through the nums
 	for i := 0; i < len(nums)-2; i++ {
-		if i > 0 && nums[i] == nums[i-1] { // skip iteration if its a duplicat
+		if i > 0 && nums[i] == nums[i-1] { // skip iteration if its a duplicates
 			continue
 		}
 
