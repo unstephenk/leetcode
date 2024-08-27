@@ -16,29 +16,28 @@ func main() {
 }
 
 func maxArea(height []int) int {
-	left, right := 0, len(height)-1 // set left and right pointers
+	// left, right := 0, len(height)-1 // set left and right pointers
+	// var res int
 
-	var res int
+	n := len(height)
+
+	var left, res int
+	right := n - 1
 
 	for left < right {
 		// find the minHeight
 		// find the area => minHeight * total of remaining heights
 		// update the answer if its greater
+		area := minHeight(height[left], height[right]) * (right - left)
 
-		for i := 0; i <= len(height); i++ {
+		if area > res {
+			res = area
+		}
 
-			area := minHeight(height[left], height[right]) * (right - left)
-
-			if area > res {
-				res = area
-			}
-
-			if height[left] < height[right] {
-				left++
-			} else {
-				right--
-			}
-
+		if height[left] < height[right] {
+			left++
+		} else {
+			right--
 		}
 
 	}
