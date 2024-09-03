@@ -15,37 +15,48 @@ func main() {
 }
 
 func minWindow(s string, t string) string {
-	// add t to a map
+
+	// create a map of t string (need)
+	// step through the string s
+	// compare what we have for that char vs what we need
+	// if equal, update the have map
+	// then compare the have total to the need total and if equal compare the res to check if it needs an update
+	// if not equal, do not update the have map and add a new char to the window
+
 	if len(s) == 0 || len(t) == 0 || len(s) < len(t) {
 		return ""
 	}
 
-	mapS := make([]int, 128)
-	count := len(t)
+	needMap := make([]int, 128)
+	needMapCount := len(t)
+
 	start, end := 0, 0
 	minLen, startIndex := int(^uint(0)>>1), 0
-	/// UPVOTE !
-	for _, char := range t {
-		mapS[char]++
+
+	for _, char := range t { // add the chars to the needmap
+		needMap[char]++
 	}
 
 	for end < len(s) {
-		if mapS[s[end]] > 0 {
-			count--
-		}
-		mapS[s[end]]--
-		end++
 
-		for count == 0 {
+		// ADOBECODEBANC
+		if needMap[s[end]] > 0 { // decrement the needMapCount if the char is present
+			needMapCount--
+		}
+
+		needMap[s[end]]-- // decrement the count from the needMap
+		end++             // move the end pointer right
+
+		for needMapCount == 0 {
 			if end-start < minLen {
 				startIndex = start
 				minLen = end - start
 			}
 
-			if mapS[s[start]] == 0 {
-				count++
+			if needMap[s[start]] == 0 { // increment the
+				needMapCount++
 			}
-			mapS[s[start]]++
+			needMap[s[start]]++
 			start++
 		}
 	}
