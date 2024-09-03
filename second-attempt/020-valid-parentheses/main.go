@@ -10,8 +10,8 @@ func main() {
 	// Every close bracket has a corresponding open bracket of the same type.
 
 	// s := "()"
-	// s := "()[]{}"
-	s := "(]"
+	s := "()[]{}"
+	// s := "(]"
 
 	res := isValid(s)
 	fmt.Println(res)
@@ -19,11 +19,11 @@ func main() {
 }
 
 func isValid(s string) bool {
-	if len(s) == 0 || len(s)%2 == 1 { // capture 2 edge cases
-		return false
-	}
+	// edge case
+	// create the character map
+	// create a stack
+	// step through the string
 
-	// create a mapping. Closed parenthesis maps to open
 	charMap := map[rune]rune{
 		'(': ')',
 		'{': '}',
@@ -35,7 +35,7 @@ func isValid(s string) bool {
 	for _, c := range s {
 		if _, isPresent := charMap[c]; isPresent { // add it to the stack
 			stack = append(stack, c)
-		} else if len(stack) == 0 || charMap[stack[len(stack)-1]] != c { // the stack if empty or char is not in the map, return false
+		} else if len(stack) == 0 || charMap[stack[len(stack)-1]] != c { // if the stack is empty or if c does not match the end of the stack
 			return false
 		} else { // pop from the stack
 			stack = stack[:len(stack)-1]
