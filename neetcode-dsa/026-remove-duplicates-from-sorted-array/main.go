@@ -30,5 +30,5 @@ func removeDuplicates(nums []int) int {
 		}
 	}
 
-	return left
+	return len(nums[:left+1])
 }

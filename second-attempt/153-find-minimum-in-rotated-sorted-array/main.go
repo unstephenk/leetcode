@@ -28,21 +28,17 @@ func findMin(nums []int) int {
 	// find the middle pointer by / 2 and assign that as the res
 	// determine if you are in the left or the right by checking nums[m] >= nums[leftPointer]
 
-	n := len(nums)
-
-	left, right := 0, n-1
+	left, right := 0, len(nums)-1
 
 	for left < right {
+		midpoint := (left + right) / 2
 
-		mid := (left + right) / 2 // set the midpoint
-		fmt.Println(left, right)
-		fmt.Println(mid)
-
-		if nums[mid] > nums[right] {
-			left = mid + 1
+		if nums[midpoint] > nums[right] {
+			left = midpoint + 1
 		} else {
-			right = mid
+			right = midpoint
 		}
+
 	}
 	return nums[left]
 }
