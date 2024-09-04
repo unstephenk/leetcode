@@ -10,11 +10,39 @@ func main() {
 	// Given the sorted rotated array nums of unique elements, return the minimum element of this array.
 	// You must write an algorithm that runs in O(log n) time.
 
-	nums := []int{3, 4, 5, 1, 2}
+	// nums := []int{3, 4, 5, 1, 2}
+	nums := []int{2, 3, 4, 5, 1}
 	res := findMin(nums)
 	fmt.Println(res)
 }
 
 func findMin(nums []int) int {
 
+	// This is a BST algorithm
+	// start at the middle point
+	// determine if the middle point is part of the left sorted array or part of the right sorted array
+	// if its part of the left, move the left pointer to the next element and search for the lowest on that side
+	// if its part of the right, move the left pointer to the beginning of the array and start searching there for the lowest element
+
+	// first assign the left pointer at the beginning and the right pointer at the end
+	// find the middle pointer by / 2 and assign that as the res
+	// determine if you are in the left or the right by checking nums[m] >= nums[leftPointer]
+
+	n := len(nums)
+
+	left, right := 0, n-1
+
+	for left < right {
+
+		mid := (left + right) / 2 // set the midpoint
+		fmt.Println(left, right)
+		fmt.Println(mid)
+
+		if nums[mid] > nums[right] {
+			left = mid + 1
+		} else {
+			right = mid
+		}
+	}
+	return nums[left]
 }
