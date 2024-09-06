@@ -19,7 +19,7 @@ func getConcatenation(nums []int) []int {
 	// create a new array
 	// step through nums and add it to the new array twice
 
-	ans := make([]int, len(nums)*2)
+	ans := make([]int, len(nums)*3)
 
 	for position, currNum := range nums {
 		ans[position] = currNum
