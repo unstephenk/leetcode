@@ -24,20 +24,28 @@ func isValid(s string) bool {
 	// create a stack
 	// step through the string
 
-	charMap := map[rune]rune{
+	if len(s) == 0 || len(s)%2 == 1 { // capture 2 edge cases
+		return false
+	}
+
+	stephensMap := map[rune]rune{
 		'(': ')',
-		'{': '}',
 		'[': ']',
+		'{': '}',
 	}
 
 	stack := []rune{}
 
-	for _, c := range s {
-		if _, isPresent := charMap[c]; isPresent { // add it to the stack
-			stack = append(stack, c)
-		} else if len(stack) == 0 || charMap[stack[len(stack)-1]] != c { // if the stack is empty or if c does not match the end of the stack
+	// peek at i, check the character map
+	// if in char map, grab the value and check the top of the stack
+	// if its in the top of the stack, recreate the stack by removing the top
+
+	for _, sChar := range s {
+		if _, isPresent := stephensMap[sChar]; isPresent {
+			stack = append(stack, sChar)
+		} else if len(stack) == 0 || stephensMap[stack[len(stack)-1]] != sChar {
 			return false
-		} else { // pop from the stack
+		} else {
 			stack = stack[:len(stack)-1]
 		}
 	}
