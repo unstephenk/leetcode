@@ -20,9 +20,9 @@ func main() {
 }
 
 type MinStack struct {
-	stack    []int
-	minStack []int
-	top      int
+	stack []int
+	min   []int
+	top   int
 }
 
 func Constructor() MinStack {
@@ -30,10 +30,10 @@ func Constructor() MinStack {
 }
 
 func (this *MinStack) Push(val int) {
-	if this.top == -1 { // if this is the first time
-		this.minStack = append(this.minStack, val)
+	if this.top == -1 {
+		this.min = append(this.min, val)
 	} else {
-		this.minStack = append(this.minStack, min(val, (this.minStack)[this.top]))
+		this.min = append(this.min, min(val, (this.min)[this.top]))
 	}
 	this.stack = append(this.stack, val)
 	this.top++
@@ -41,7 +41,7 @@ func (this *MinStack) Push(val int) {
 
 func (this *MinStack) Pop() {
 	this.stack = this.stack[:this.top]
-	this.minStack = this.minStack[:this.top]
+	this.min = this.min[:this.top]
 	this.top--
 	return
 }
@@ -51,7 +51,7 @@ func (this *MinStack) Top() int {
 }
 
 func (this *MinStack) GetMin() int {
-	return (this.minStack)[this.top]
+	return (this.min)[this.top]
 }
 
 func min(a, b int) int {
