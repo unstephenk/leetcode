@@ -10,7 +10,6 @@ type ListNode struct {
 func main() {
 
 	// Given the head of a singly linked list, reverse the list, and return the reversed list.
-	// head := []int{1, 2, 3, 4, 5}
 
 	head := &ListNode{Val: 1}
 	head.Next = &ListNode{Val: 2}
@@ -24,17 +23,19 @@ func main() {
 }
 
 func reverseListIterative(head *ListNode) *ListNode {
+	// start the prev node at null
 	var prev *ListNode
 	curr := head
 
+	// while loop until nil
 	for curr != nil {
-		tempNext := curr.Next
-
+		// set the curr.next to prev
+		// set prev curr
+		// set curr to curr.next
+		tempCurrNext := curr.Next
 		curr.Next = prev
 		prev = curr
-		curr = tempNext
+		curr = tempCurrNext
 	}
-
 	return prev
-
 }
