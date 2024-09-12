@@ -21,7 +21,7 @@ func main() {
 
 func justifyWords(width int, listOfWords []string) string {
 	countOfChars := 0
-	requiredSpaces := len(listOfWords) - 1
+
 	res := strings.Builder{}
 
 	for _, s := range listOfWords {
@@ -30,8 +30,6 @@ func justifyWords(width int, listOfWords []string) string {
 
 	// add the chars and the requrired spaces and then subtract the width to return the num of additional spaces needed
 	additionalSpaces := (width - countOfChars) / (len(listOfWords) - 1)
-
-	fmt.Println(width, countOfChars, requiredSpaces, (len(listOfWords) - 1), additionalSpaces)
 
 	for i := 0; i <= len(listOfWords)-1; i++ {
 		res.WriteString(listOfWords[i])
