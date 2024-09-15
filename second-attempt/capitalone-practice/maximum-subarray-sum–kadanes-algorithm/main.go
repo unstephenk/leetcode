@@ -12,13 +12,20 @@ func main() {
 }
 
 func findSubArray(arr []int) int {
+	// kadane's algorithm
+
+	// step through each item in the array
+	// compare the maxsum to the current item + the maxsum
+	// update the res if its higher
+	// return the res
+
 	res := arr[0]
-	currSum := arr[0]
+	maxSum := arr[0]
 
 	for i := 1; i < len(arr); i++ {
-		currSum = max(currSum+arr[i], arr[i])
-		res = max(currSum, res)
-		fmt.Println(arr[i], currSum, res)
+		fmt.Println(arr[i], maxSum+arr[i], res)
+		maxSum = max(maxSum+arr[i], arr[i])
+		res = max(maxSum, res)
 	}
 
 	return res
