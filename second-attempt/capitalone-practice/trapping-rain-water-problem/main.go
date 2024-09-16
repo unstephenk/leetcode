@@ -6,13 +6,15 @@ func main() {
 
 	// Trapping Rainwater Problem states that given an array of N non-negative integers arr[] representing an elevation map where the width of each bar is 1, compute how much water it can trap after rain.
 	arr := []int{3, 0, 1, 0, 4, 0, 2}
-	res := rainWater(arr)
+	res1 := rainWaterNaive(arr)
+	res2 := rainWaterPreCalc(arr)
 
-	fmt.Println(res)
+	fmt.Println(res1)
+	fmt.Println(res2)
 
 }
 
-func rainWater(arr []int) int {
+func rainWaterNaive(arr []int) int {
 	// loop through the array
 	// find the left side min
 	// find the right side min
@@ -52,4 +54,37 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+
+func rainWaterPreCalc(height []int) int {
+	// precalculate the highest columns for left and right
+	// add them to arrays
+	// step through the array again
+	// calculate the volume
+
+	res := 0
+	lengthArr := len(height)
+
+	// precalulate the left side
+	left := make([]int, len(height))
+	left[0] = height[0]
+	// do not include the first element
+	for i := 1; i < len(height); i++ {
+		left[i] = max(left[i-1], height[i])
+	}
+
+	// do not include the last element
+	right := make([]int, len(height))
+	right[lengthArr-1] = height[lengthArr-1]
+	for i := len(height) - 2; i >= 0; i-- {
+		right[i] = max(right[i+1], height[i])
+	}
+
+	// both arrrays are populated, run calculation
+	for i := 0; i < lengthArr; i++ {
+		res += min(left[i], right[i]) - height[i]
+	}
+
+	return res
+
 }
