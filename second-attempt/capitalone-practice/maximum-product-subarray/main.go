@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	// Given an integer array, the task is to find the maximum product of any subarray.
@@ -11,40 +13,37 @@ func main() {
 
 }
 
-func maxProduct(arr []int) int {
+func maxProduct(nums []int) int {
 	// initate currMax, currMin, maxProd
 	// step through the loop
 	// assign currMax, currMin, maxProd
 	// return maxProd
 
-	currMax, currMin, maxProd := arr[0], arr[0], arr[0]
+	currMax, currMin, maxProd := nums[0], nums[0], nums[0]
 
-	for i := 1; i < len(arr); i++ {
-		temp := max(currMax*arr[i], currMin*arr[i], arr[i])
-		currMin = min(currMax*arr[i], currMin*arr[i], arr[i])
-		currMax = temp
-		maxProd = max(maxProd, currMax, maxProd)
+	for i := 1; i < len(nums); i++ {
+		if nums[i] < 0 {
+			currMax, currMin = currMin, currMax
+		}
+
+		currMax = max(currMax*nums[i], nums[i])
+		currMin = min(currMin*nums[i], nums[i])
+		maxProd = max(currMax, maxProd)
 	}
 
 	return maxProd
 }
 
-func max(a, b, c int) int {
-	if a >= b && a >= c {
+func max(a, b int) int {
+	if a > b {
 		return a
 	}
-	if b >= a && b >= c {
-		return b
-	}
-	return c
+	return b
 }
 
-func min(a, b, c int) int {
-	if a <= b && a <= c {
+func min(a, b int) int {
+	if a < b {
 		return a
 	}
-	if b <= a && b <= c {
-		return b
-	}
-	return c
+	return b
 }
