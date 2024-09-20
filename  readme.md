@@ -8,3 +8,4 @@
 4. 0049-group-anagrams
 5. 0347-top-k-frequent-elements
 6. 0271-encode-and-decode-strings
+7. 0238-product-of-array-except-self
