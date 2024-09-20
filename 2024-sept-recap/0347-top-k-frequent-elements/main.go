@@ -25,9 +25,21 @@ func topKFrequent(nums []int, k int) []int {
 
 	// {1: 4, 2: 10}
 
-	bucketSortArray := []int{}
+	bucketSortArray := make([][]int, len(nums)+1)
 	for freqValue, freqCount := range freqMap {
 		bucketSortArray[freqCount] = append(bucketSortArray[freqCount], freqValue)
 	}
 
+	// now that everything is in the bucket, pull the top k elements
+	ans := make([]int, 0, len(nums))
+	for i := len(bucketSortArray) - 1; i >= 0; i-- {
+		for _, bucketValue := range bucketSortArray[i] {
+			if k > 0 {
+				ans = append(ans, bucketValue)
+				k--
+			}
+		}
+	}
+
+	return ans
 }
