@@ -33,7 +33,7 @@ func longestConsecutive(nums []int) int {
 			length := 0
 
 			for {
-				if _, isPresent := neighborSet[numsValue]; isPresent {
+				if _, isPresent := neighborSet[currentNum]; isPresent {
 					length++
 					currentNum++
 				} else {
