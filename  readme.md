@@ -9,3 +9,6 @@
 5. 0347-top-k-frequent-elements
 6. 0271-encode-and-decode-strings
 7. 0238-product-of-array-except-self
+8. 0128-longest-consecutive-sequence
+9. 0125-valid-palindrome
+10. 0015-three-sum
