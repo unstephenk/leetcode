@@ -14,3 +14,5 @@
 10. 0015-three-sum
 11. 0011-container-with-most-water
 12. 0121-best-time-to-buy-and-sell-stock
+13. 0003-longest-substring-without-repeating-characters
+14. 0424-longest-repeating-character-replacement
