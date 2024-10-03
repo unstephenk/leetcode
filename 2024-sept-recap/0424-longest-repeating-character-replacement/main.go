@@ -31,7 +31,7 @@ func characterReplacement(s string, k int) int {
 		maxf = max(maxf, mapCount[s[right]])
 
 		if (right-left+1)-maxf > k {
-			mapCount[s[right]]--
+			mapCount[s[left]]--
 			left++
 		}
 
