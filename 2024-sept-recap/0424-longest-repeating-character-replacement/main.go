@@ -15,4 +15,36 @@ func main() {
 
 func characterReplacement(s string, k int) int {
 
+	// step through the string
+	// update the count in the map
+	// update the max freq by looking at the freq in the map
+	// if k >= maxf then update res
+	// else move the left pointer over 1
+
+	mapCount := make(map[byte]int, 26)
+
+	left, maxf, res := 0, 0, 0
+
+	for right := 0; right < len(s); right++ {
+		mapCount[s[right]]++
+
+		maxf = max(maxf, mapCount[s[right]])
+
+		if (right-left+1)-maxf > k {
+			mapCount[s[right]]--
+			left++
+		}
+
+		res = max(res, right-left+1)
+	}
+
+	return res
+
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
