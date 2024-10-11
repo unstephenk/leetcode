@@ -16,5 +16,23 @@ func main() {
 }
 
 func minWindow(s string, t string) string {
+	if t == "" { // handle edge case, if t is empty return empty
+		return ""
+	}
 
+	// hashmap for window
+
+	// hashmap to hold the chars in t
+	tMap := map[rune]int{}
+
+	for _, tChar := range t {
+		tMap[tChar]++
+	}
+
+	have, need := 0, len(tMap) // len(tMap) returns the length of unique chars only
+
+	for right := 0; right < len(s); right++ {
+		currentChar := s[right]
+
+	}
 }
