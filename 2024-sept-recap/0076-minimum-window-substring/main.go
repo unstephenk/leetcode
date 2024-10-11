@@ -1,0 +1,20 @@
+package main
+
+import "fmt"
+
+func main() {
+	// Given two strings s and t of lengths m and n respectively, return the minimum window substring
+	// of s such that every character in t (including duplicates) is included in the window. If there is no such
+	// substring, return the empty string "".
+	// The testcases will be generated such that the answer is unique.
+
+	s := "ADOBECODEBANC"
+	t := "ABC"
+
+	res := minWindow(s, t)
+	fmt.Println(res)
+}
+
+func minWindow(s string, t string) string {
+
+}
