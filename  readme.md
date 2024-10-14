@@ -17,3 +17,4 @@
 13. 0003-longest-substring-without-repeating-characters
 14. 0424-longest-repeating-character-replacement
 15. 0076-minimum-window-substring
+16. 0020-valid-parentheses
