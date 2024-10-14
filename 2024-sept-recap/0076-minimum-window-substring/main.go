@@ -16,23 +16,43 @@ func main() {
 }
 
 func minWindow(s string, t string) string {
-	if t == "" { // handle edge case, if t is empty return empty
+	if len(s) == 0 || len(t) == 0 || len(s) < len(t) {
 		return ""
 	}
 
-	// hashmap for window
-
-	// hashmap to hold the chars in t
-	tMap := map[rune]int{}
-
-	for _, tChar := range t {
-		tMap[tChar]++
+	mapS := make([]int, 128)
+	count := len(t)
+	start, end := 0, 0
+	minLen, startIndex := int(^uint(0)>>1), 0
+	/// UPVOTE !
+	for _, char := range t {
+		mapS[char]++
 	}
 
-	have, need := 0, len(tMap) // len(tMap) returns the length of unique chars only
+	for end < len(s) {
+		if mapS[s[end]] > 0 {
+			count--
+		}
+		mapS[s[end]]--
+		end++
 
-	for right := 0; right < len(s); right++ {
-		currentChar := s[right]
+		for count == 0 {
+			if end-start < minLen {
+				startIndex = start
+				minLen = end - start
+			}
 
+			if mapS[s[start]] == 0 {
+				count++
+			}
+			mapS[s[start]]++
+			start++
+		}
 	}
+
+	if minLen == int(^uint(0)>>1) {
+		return ""
+	}
+
+	return s[startIndex : startIndex+minLen]
 }
