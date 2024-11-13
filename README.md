@@ -21,3 +21,4 @@
 17. 0153-find-minimum-in-rotated-sorted-array
 18. 0033-search-in-rotated-sorted-array
 19. 0206-reverse-linked-list
+20. 0021-merge-two-sorted-lists
