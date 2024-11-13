@@ -20,3 +20,4 @@
 16. 0020-valid-parentheses
 17. 0153-find-minimum-in-rotated-sorted-array
 18. 0033-search-in-rotated-sorted-array
+19. 0206-reverse-linked-list
