@@ -22,3 +22,6 @@
 18. 0033-search-in-rotated-sorted-array
 19. 0206-reverse-linked-list
 20. 0021-merge-two-sorted-lists
+
+#### NeetCode Algorithims & Data Structures for Beginners
+1. 1472-design-browser-history
