@@ -25,3 +25,4 @@
 
 #### NeetCode Algorithims & Data Structures for Beginners
 1. 1472-design-browser-history
+2. 1700-number-of-students-unable-to-eat-lunch
