@@ -27,3 +27,7 @@
 1. 1472-design-browser-history
 2. 1700-number-of-students-unable-to-eat-lunch
 3. 0225-implement-stack-using-queues
+4. 1929-concatenation-of-array
+5. 0206-reverse-linked-list
+6. 0707-design-linked-list
+7. 0070-climbing-stairs
