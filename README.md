@@ -23,6 +23,13 @@
 19. 0206-reverse-linked-list
 20. 0021-merge-two-sorted-lists
 
+## 2025-jan-recap
+#### Blind 75
+1. 0217-contains-duplicate
+2. 0242-valid-anagram
+3. 0001-two-sum
+4. 0049-group-anagrams
+
 #### NeetCode Algorithims & Data Structures for Beginners
 1. 1472-design-browser-history
 2. 1700-number-of-students-unable-to-eat-lunch

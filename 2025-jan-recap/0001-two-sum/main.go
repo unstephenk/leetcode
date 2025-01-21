@@ -15,24 +15,19 @@ func main() {
 
 func twoSum(nums []int, target int) []int {
 	// step through the nums and add them to a map
-	// step through the map
-	// check to see if the curr nums minus the target exists in the map
+	// check to see if the curr target minus the current value exists in the map
 	// if not, continue
 	// if so, add the curr num and the new num to the ans array
 
 	numsMap := make(map[int]int, len(nums))
-	ansArray := []int{}
 
-	for _, num := range nums {
-		numsMap[num]++
-	}
-
-	for _, num := range nums {
-		if _, isPresent := numsMap[target-num]; isPresent {
-			ansArray = append(ansArray, numsMap[target-num])
-			ansArray = append(ansArray, num)
+	for currIndex, currValue := range nums {
+		if newIndex, isPresent := numsMap[target-currValue]; isPresent {
+			return []int{currIndex, newIndex}
 		}
+
+		numsMap[currValue] = currIndex
 	}
 
-	return ansArray
+	return []int{}
 }
