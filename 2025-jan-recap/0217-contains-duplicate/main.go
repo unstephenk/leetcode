@@ -3,33 +3,26 @@ package main
 import "fmt"
 
 func main() {
-	// Given an integer array nums, return true if any value appears at least twice in the array,
-	// and return false if every element is distinct.
+	// Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
 	nums := []int{1, 2, 3, 1}
-
-	res := containsDuplicate(nums)
-
+	res := containsDups(nums)
 	fmt.Println(res)
 
 }
 
-func containsDuplicate(nums []int) bool {
-	// create a map
-	// iterate through the nums
-	// check to see if it exists first
-	// if it exists, then return false
-	// if not, add the nums as a key to the map
-	// return true
+func containsDups(nums []int) bool {
+	// Add each to a map
 
-	numsMap := make(map[int]bool, len(nums))
+	duplicateMap := make(map[int]bool, len(nums))
 
-	for _, num := range nums {
-		if _, isPresent := numsMap[num]; isPresent {
+	for _, numsVal := range nums {
+		// check to see if the value already exists
+		if _, isPresent := duplicateMap[numsVal]; isPresent {
 			return true
 		}
 
-		numsMap[num] = true
+		duplicateMap[numsVal] = true
 	}
 
 	return false
