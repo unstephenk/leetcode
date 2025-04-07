@@ -35,6 +35,8 @@
 1. 0001-two-sum
 2. 0242-valid-anagram
 3. 0217-contains-duplicate
+4. 0049-group-anagrams
+5. 0347-top-k-frequent-elements
 
 
 ## NeetCode Algorithims & Data Structures for Beginners

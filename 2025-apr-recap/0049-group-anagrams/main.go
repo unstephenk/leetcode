@@ -4,8 +4,9 @@ import "fmt"
 
 func main() {
 	// Given an array of strings strs, group the anagrams together. You can return the answer in any order.
-
 	// Example Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+	// CATEGORY: Arrays & Hashing
 
 	strs := []string{"eat", "tea", "tan", "ate", "nat", "bat"}
 	res := groupAnagrams(strs)
@@ -16,22 +17,22 @@ func groupAnagrams(strs []string) [][]string {
 
 	masterMap := map[[26]int][]string{}
 
-	for _, strsVal := range strs {
+	for _, strsWord := range strs {
+
 		tempArray := [26]int{}
 
-		for _, strsChar := range strsVal {
+		for _, strsChar := range strsWord {
 			tempArray[strsChar-'a']++
 		}
 
-		masterMap[tempArray] = append(masterMap[tempArray], strsVal)
+		masterMap[tempArray] = append(masterMap[tempArray], strsWord)
 	}
 
-	// the answers requires a different mapping
-	answerArray := [][]string{}
+	// answer requires a different format
+	answer := [][]string{}
 	for _, masterMapVal := range masterMap {
-		answerArray = append(answerArray, masterMapVal)
+		answer = append(answer, masterMapVal)
 	}
 
-	return answerArray
-
+	return answer
 }
