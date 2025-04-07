@@ -1,9 +1,0 @@
-<h1>Home</h1>
-<p>Welcome to the Home page!</p>
-
-<ul>
-  <li *ngFor="let item of items">{{ item }}</li>
-</ul>
-
-<input #newItemInput type="text" placeholder="New item">
-<button (click)="addItem(newItemInput.value); newItemInput.value=''">Add Item</button>

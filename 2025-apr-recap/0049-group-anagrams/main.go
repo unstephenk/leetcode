@@ -14,4 +14,24 @@ func main() {
 
 func groupAnagrams(strs []string) [][]string {
 
+	masterMap := map[[26]int][]string{}
+
+	for _, strsVal := range strs {
+		tempArray := [26]int{}
+
+		for _, strsChar := range strsVal {
+			tempArray[strsChar-'a']++
+		}
+
+		masterMap[tempArray] = append(masterMap[tempArray], strsVal)
+	}
+
+	// the answers requires a different mapping
+	answerArray := [][]string{}
+	for _, masterMapVal := range masterMap {
+		answerArray = append(answerArray, masterMapVal)
+	}
+
+	return answerArray
+
 }
