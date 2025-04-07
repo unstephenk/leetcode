@@ -30,7 +30,14 @@
 3. 0001-two-sum
 4. 0049-group-anagrams
 
-#### NeetCode Algorithims & Data Structures for Beginners
+## 2025-apr-recap
+#### Blind 75
+1. 0001-two-sum
+2. 0242-valid-anagram
+3. 0217-contains-duplicate
+
+
+## NeetCode Algorithims & Data Structures for Beginners
 1. 1472-design-browser-history
 2. 1700-number-of-students-unable-to-eat-lunch
 3. 0225-implement-stack-using-queues
