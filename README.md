@@ -37,6 +37,7 @@
 3. 0217-contains-duplicate
 4. 0049-group-anagrams
 5. 0347-top-k-frequent-elements
+6. 0271-encode-and-decode-strings
 
 
 ## NeetCode Algorithims & Data Structures for Beginners
