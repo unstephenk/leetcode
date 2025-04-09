@@ -22,6 +22,7 @@ func main() {
 	// CATEGORY: Arrays & Hashing
 	// Add a delimeter such as the # sign
 	// Add the total num of chars after the delimeter
+	// Use For loop with Break
 
 	codec := Constructor()
 
@@ -44,9 +45,18 @@ func (codec *Codec) Encode(strs []string) string {
 		res.WriteString(strconv.Itoa(len(str)))
 	}
 
+	return res.String()
+
 }
 
 // Decodes a single string to a list of strings.
 func (codec *Codec) Decode(strs string) []string {
+	// walk through the string until you find the delimeter
+	// capture the value
+	// grab all the chars starting from the beginning using the value
+	// add the string to the answer array
 
+	answer := []string{}
+
+	for len(strs)
 }
