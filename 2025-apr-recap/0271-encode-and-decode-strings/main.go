@@ -6,10 +6,6 @@ import (
 	"strings"
 )
 
-func Constructor() Codec {
-	return Codec{}
-}
-
 type Codec struct {
 }
 
@@ -24,7 +20,7 @@ func main() {
 	// Add the total num of chars after the delimeter
 	// Use For loop with Break
 
-	codec := Constructor()
+	var codec Codec
 
 	dummy_input := []string{"Hello", "World"}
 
@@ -40,9 +36,9 @@ func (codec *Codec) Encode(strs []string) string {
 	res := strings.Builder{}
 
 	for _, str := range strs {
-		res.WriteString(str)
-		res.WriteString("#")
 		res.WriteString(strconv.Itoa(len(str)))
+		res.WriteString("#")
+		res.WriteString(str)
 	}
 
 	return res.String()
@@ -56,7 +52,28 @@ func (codec *Codec) Decode(strs string) []string {
 	// grab all the chars starting from the beginning using the value
 	// add the string to the answer array
 
-	answer := []string{}
+	// #5Hello#5World
 
-	for len(strs)
+	res := []string{}
+
+	for len(strs) != 0 {
+
+		// grab the num of nums at the beginning of the string
+		numOfNums := 0
+
+		for _, strsChar := range strs {
+			if strsChar == '#' {
+				break
+			}
+			numOfNums++
+		}
+
+		strLength, _ := strconv.Atoi(strs[:numOfNums])
+
+		res = append(res, strs[numOfNums+1:numOfNums+1+strLength])
+		strs = strs[numOfNums+1+strLength:]
+
+	}
+
+	return res
 }
