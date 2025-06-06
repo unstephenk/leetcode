@@ -40,6 +40,10 @@
 6. 0271-encode-and-decode-strings
 7. 0238-product-of-array-except-self
 
+## 2025-apr-recap
+#### Blind 75
+1. 0001-two-sum
+
 
 ## NeetCode Algorithims & Data Structures for Beginners
 1. 1472-design-browser-history
