@@ -28,8 +28,18 @@ func twoSum(nums []int, target int) []int {
 	// 3. if not, add currValue and its index to the map
 	// 4. if so, return the currvalue index and the target
 
-	for currValue, currIndex := range nums {
+	numsMap := make(map[int]int, len(nums))
 
+	for currIndex, currValue := range nums {
+
+		if otherIndex, isPresent := numsMap[target-currValue]; isPresent {
+			// if it is present return both indices
+			return []int{currIndex, otherIndex}
+		}
+
+		numsMap[currValue] = currIndex
 	}
+
+	return []int{}
 
 }
