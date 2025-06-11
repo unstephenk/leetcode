@@ -9,7 +9,8 @@ func main() {
 	// You can return the answer in any order.
 
 	// CATEGORY: Arrays & Hashing
-	// TIME COMPLEXITY:
+	// TIME COMPLEXITY: O(n)
+	// SPACE COMPLEXITY: O(n)
 
 	nums := []int{2, 7, 11, 15}
 	target := 9
